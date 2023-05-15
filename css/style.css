@@ -60,25 +60,25 @@ h1 {
 }
 
 .photographer_section article .description div{
-    margin: 3px 0;
+    margin: 6px 0;
 }
 
 .photographer_section article .location {
     color: #901C1C;
-    font-size: 13px;
+    font-size: 18px;
     line-height: 17px;
     text-align: center;
 }
 
 .photographer_section article .tagline {
-    font-size: 10px;
+    font-size: 14px;
     line-height: 13px;
     text-align: center;
     color: #000000;
 }
 
 .photographer_section article .price {
-    font-size: 9px;
+    font-size: 12px;
     line-height: 12px;
     text-align: center;
     color: #757575;
