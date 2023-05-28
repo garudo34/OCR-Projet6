@@ -27,7 +27,7 @@ h1 {
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    gap: 3px;
     margin-top: 100px;
 }
 
@@ -39,12 +39,104 @@ h1 {
     flex-direction: column;
 }
 
+.photographer_section article a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    font-weight: 400;
+    margin: 20px 0px 5px 0px;
+    ;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    border-radius: 50%;
+    image-rendering: smooth;
+
+}
+
+.photographer_section article .description {
+    margin-bottom: 65px;
+}
+
+.photographer_section article .description div {
+    margin: 6px 0;
+}
+
+.photographer_section article .location {
+    color: #901C1C;
+    font-size: 18px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.photographer_section article .tagline {
+    font-size: 14px;
+    line-height: 13px;
+    text-align: center;
+    color: #000000;
+}
+
+.photographer_section article .price {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: #757575;
+}
+
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #FAFAFA;
+    z-index: 999;
+    animation: fade-out 2s linear 1s 1 normal forwards;
+}
+
+.loader__spinner {
+    position: relative;
+    color: #D3573C;
+    font-size: 50px;
+    z-index: 1000;
+    animation: spin 3s ease-out;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(360deg) scale(3);
+    }
+
+    100% {
+        transform: rotate(900deg) scale(1);
+
+    }
 }

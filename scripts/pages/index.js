@@ -1,13 +1,16 @@
     async function getPhotographers() {
-        
-        let jsonData = await fetch('/data/photographers.json')
-            .then(res => res.json())
-            .catch(err => console.log('an error occurs', err))
+        try {
+            let response = await fetch('/data/photographers.json');
+            if (!response.ok) {
+                throw new Error("Network response was not OK");
+            }
+            return await response.json();
+        } catch (error) {
+            console.error("Error:", error);
+            return { photographers: [] }
+        }
 
-        let photographers = jsonData.photographers
-        return ({
-            photographers: [...photographers]
-        })
+
     }
 
     async function displayData(photographers) {
@@ -22,9 +25,10 @@
 
     async function init() {
         // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
+        const {
+            photographers
+        } = await getPhotographers();
         displayData(photographers);
     };
-    
+
     init();
-    

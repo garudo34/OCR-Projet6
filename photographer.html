@@ -1,37 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c9e336a187.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="./index.html">
+      <img src="./assets/images/logo.png" alt="Fisheye Home Page" class="logo" />
+    </a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <div class="profile">
+        <h1 class="profile_name"></h1>
+        <p class="profile_location"></p>
+        <p class="profile_tagline"></p>
       </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+      <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
+      <img class="profile_portrait">
+    </div>
+
+    <div id="custom-select">
+				<label for="select">Trier par</label>
+				<select name="select" id="select">
+					<option value="like">Popularité</option>
+					<option value="date">Date</option>
+					<option value="title">Titre</option>
+				</select>
 			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+
+    <section class="photograph-medias"></section>
+
+    <div class="photograph-price">
+      <span class="bottom-like"></span><span class="bottom-price"></span>
+    </div>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h1>Contactez-moi</h1>
+        <img src="assets/icons/close.svg" alt="Close Contact Form" onclick="closeModal()" />
+      </header>
+      <form onsubmit="sendMessage(event)">
+        <div>
+          <label for="firstname">Prénom</label>
+          <input id="firstname" name="firstname" />
+          <label for="lastname">Nom</label>
+          <input id="lastname" name="lastname" />
+          <label for="email">Email</label>
+          <input id="email" name="email" />
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button class="contact_button" aria-label="Send">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="media-modal" class="media-modal">
+    <span class="close cursor" onclick="closeMedia()">&times;</span>
+    <div class="modal-content">
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+      <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+  </div>
+
+
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/utils/filter.js"></script>
+  <script src="/scripts/utils/mediaModal.js"></script>
+
+</body>
+
 </html>
