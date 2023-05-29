@@ -18,16 +18,7 @@
     </a>
   </header>
   <main id="main">
-    <div class="photograph-header">
-      <div class="profile">
-        <h1 class="profile_name"></h1>
-        <p class="profile_location"></p>
-        <p class="profile_tagline"></p>
-      </div>
-      <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
-      <img class="profile_portrait">
-    </div>
-
+    <section class="photograph-header"></section>
     <div id="custom-select">
 				<label for="select">Trier par</label>
 				<select name="select" id="select">
@@ -76,11 +67,19 @@
   </div>
 
 
-  <script src="/scripts/pages/photographer.js"></script>
+  <!-- <script src="/scripts/pages/photographer.js"></script> -->
   <script src="/scripts/utils/contactForm.js"></script>
-  <script src="/scripts/utils/filter.js"></script>
   <script src="/scripts/utils/mediaModal.js"></script>
 
+
+  <script src="/scripts/api/api.js" ></script>
+  <script src="/scripts/models/Photographer.js" ></script>
+  <script src="/scripts/models/Media.js" ></script>
+  <script src="/scripts/factories/MediasFactory.js" ></script>
+  <script src="/scripts/templates/PhotographerProfile.js" ></script>
+  <script src="/scripts/templates/MediaCard.js" ></script>
+  <script src="/scripts/pages/photographer.js" ></script>
+  
 </body>
 
 </html>

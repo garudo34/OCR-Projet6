@@ -1,6 +1,6 @@
 class Api {
     constructor(url) {
-        this._url
+        this._url = url
     }
 
     async get() {

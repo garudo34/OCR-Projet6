@@ -3,6 +3,7 @@
     height: 300px;
     margin: 0 100px;
     border-radius: 5px;
+    
 }
 
 .contact_button {
@@ -113,15 +114,12 @@ form textarea {
     height: 120px;
 }
 
-/* header photographe */
-.photograph-header {
+.profile{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
-
-.profile {}
 
 .profile_name {
     font-weight: 400;
