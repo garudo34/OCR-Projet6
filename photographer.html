@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,16 +43,16 @@
       <span class="bottom-like"></span><span class="bottom-price"></span>
     </div>
   </main>
-  <div id="contact_modal">
+  <div id="contact_modal" role="dialog">
     <div class="modal">
       <header>
         <h1>Contactez-moi</h1>
         <img src="assets/icons/close.svg" alt="Close Contact Form" onclick="closeModal()" />
       </header>
       <form onsubmit="sendMessage(event)">
-        <div>
+        <div role="form" aria-label="Contact information">
           <label for="firstname">Prénom</label>
-          <input id="firstname" name="firstname" />
+          <input id="firstname" name="firstname"/>
           <label for="lastname">Nom</label>
           <input id="lastname" name="lastname" />
           <label for="email">Email</label>
@@ -67,18 +67,17 @@
 
 
   <div id="media-modal" class="media-modal">
-    <span class="close cursor" onclick="closeMedia()">&times;</span>
+    <span class="close cursor" alt="Close dialog" onclick="closeMedia()">&times;</span>
     <div class="modal-content">
       <!-- Next/previous controls -->
-      <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-      <a class="next" onclick="moveSlide(1)">&#10095;</a>
+      <a class="prev" alt="Previous image" onclick="moveSlide(-1)">&#10094;</a>
+      <a class="next" alt="Next image" onclick="moveSlide(1)">&#10095;</a>
     </div>
   </div>
 
 
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
-  <script src="/scripts/utils/filter.js"></script>
   <script src="/scripts/utils/mediaModal.js"></script>
 
 </body>

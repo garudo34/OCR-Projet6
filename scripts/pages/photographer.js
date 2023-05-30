@@ -16,7 +16,7 @@ const likes = [];
 
         // on récupère les medias du photographe depuis le photographeId
         medias = data.media.filter((media) => media.photographerId === Number(photographerId))
-
+        const $contact_modal = document.getElementById('contact_modal')
         // on construit le header de la page profil
         displayHeader(photographer)
         displayMedias(photographer, medias)
@@ -38,6 +38,16 @@ const likes = [];
             document.querySelectorAll('.mySlides').forEach(e => e.remove());
             displayMedias(photographer, medias)
         })
+
+        addEventListener('keydown', (event) => {
+            if ($contact_modal.style.visibility && $contact_modal.style.visibility === 'visible') {
+                if (event.code === 'Escape') {
+                    $contact_modal.style.visibility = 'hidden'
+                }
+            }
+        })
+    
+    
     } catch (error) {
         console.error("Error:", error);
     }
@@ -69,6 +79,8 @@ function displayHeader(photographer) {
 
 function displayMedias(photographer, medias) {
     const $medias_section = document.querySelector('.photograph-medias')
+    const $media_modal = document.getElementById('media-modal')
+    
     $medias_section.innerHTML = ""
     for (const media of medias) {
         const {
@@ -90,20 +102,51 @@ function displayMedias(photographer, medias) {
             slide.style.display = "block";
             openMedia()
         })
+
+        $link.addEventListener('keydown', (event) => {
+			if ($media_modal.style.display && $media_modal.style.display === 'block') {
+				if (event.code === 'ArrowLeft') {
+					return moveSlide(-1)
+				}
+				if (event.code === 'ArrowRight') {
+					return moveSlide(1)
+				}
+				if (event.code === 'Escape') {
+					return closeMedia()
+                }
+                if (event.code === 'ArrowUp') {
+                    console.log('ca devrait monter')
+                }
+			} else {
+                if (event.target.classList.contains('link-slide')) {
+                    if (event.code === 'Enter') {
+                        const data_id_media = event.target.querySelector('.card-media').dataset.id
+                        let slide = document.querySelector(`.img-modal[data-id='${data_id_media}']`).closest(".mySlides");
+                        slide.style.display = "block";
+                        openMedia()
+                    }
+                    
+                }
+            }
+        })
     }
 }
+
 
 function createMediaInLightBox($media_content, $name) {
     const $modal_content = document.querySelector('.modal-content');
     const $media_modal_slide = document.createElement('div');
     $media_modal_slide.classList.add('mySlides');
+    $media_modal_slide.setAttribute('role', 'dialog')
     const $media_modal_figure = document.createElement('figure');
     const $media_modal_content = $media_content.cloneNode(true);
     $media_modal_content.classList.remove('card-media');
     $media_modal_content.classList.add('img-modal')
     const $media_modal_caption = $name.cloneNode(true);
     $media_modal_figure.appendChild($media_modal_content);
-    $media_modal_figure.appendChild($media_modal_caption);
+    const $media_modal_figcaption = document.createElement('figcaption');
+    $media_modal_figcaption.appendChild($media_modal_caption);
+    $media_modal_figure.appendChild($media_modal_figcaption)
     $media_modal_slide.appendChild($media_modal_figure);
     $modal_content.appendChild($media_modal_slide);
 }
@@ -113,6 +156,7 @@ function createMediaCard(media, photographer) {
     const $media = document.createElement('figure');
     const $link = document.createElement('a');
     $link.setAttribute('href', '#');
+    $link.classList.add('link-slide');
     let src = '';
     let $media_content;
     if (media.video) {
@@ -135,6 +179,7 @@ function createMediaCard(media, photographer) {
     $name.classList.add('media-name');
     const $like = document.createElement('span');
     $like.classList.add('media-like');
+    $like.setAttribute('aria-label', 'likes')
     $media_content.dataset.id = media.id;
     $media_content.alt = media.title;
 
