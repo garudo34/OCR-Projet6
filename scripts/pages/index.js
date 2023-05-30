@@ -1,6 +1,6 @@
     async function getPhotographers() {
         try {
-            let response = await fetch('/data/photographers.json');
+            let response = await fetch('./data/photographers.json');
             if (!response.ok) {
                 throw new Error("Network response was not OK");
             }
