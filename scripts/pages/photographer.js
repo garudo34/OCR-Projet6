@@ -20,6 +20,7 @@ const likes = [];
         // on construit le header de la page profil
         displayHeader(photographer)
         displayMedias(photographer, medias)
+        Lightbox.init()
         displayLikesAndPrice(medias, photographer.price)
 
         const selectInput = document.querySelector('#select')
@@ -89,19 +90,19 @@ function displayMedias(photographer, medias) {
             $name
         } = createMediaCard(media, photographer);
 
-        createMediaInLightBox($media_content, $name);
+        // createMediaInLightBox($media_content, $name);
 
-        $link.addEventListener('click', function (event) {
-            event.preventDefault()
-            if (event.target.classList.contains('media-like')) {
-                console.log('clic sur like !')
-                return
-            }
-            let data_id_media = event.target.dataset.id
-            let slide = document.querySelector(`.img-modal[data-id='${data_id_media}']`).closest(".mySlides");
-            slide.style.display = "block";
-            openMedia()
-        })
+        // $link.addEventListener('click', function (event) {
+        //     event.preventDefault()
+        //     if (event.target.classList.contains('media-like')) {
+        //         console.log('clic sur like !')
+        //         return
+        //     }
+        //     let data_id_media = event.target.dataset.id
+        //     let slide = document.querySelector(`.img-modal[data-id='${data_id_media}']`).closest(".mySlides");
+        //     slide.style.display = "block";
+        //     openMedia()
+        // })
 
         $link.addEventListener('keydown', (event) => {
 			if ($media_modal.style.display && $media_modal.style.display === 'block') {
