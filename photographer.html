@@ -6,7 +6,6 @@
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="css/lightbox.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/c9e336a187.js" crossorigin="anonymous"></script>
   <title>Fisheye - photographe </title>
@@ -19,24 +18,8 @@
     </a>
   </header>
   <main id="main">
-    <div class="photograph-header">
-      <div class="profile">
-        <h1 class="profile_name"></h1>
-        <p class="profile_location"></p>
-        <p class="profile_tagline"></p>
-      </div>
-      <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
-      <img class="profile_portrait">
-    </div>
-
-    <div id="custom-select">
-				<label for="select">Trier par</label>
-				<select name="select" id="select">
-					<option value="like">Popularité</option>
-					<option value="date">Date</option>
-					<option value="title">Titre</option>
-				</select>
-			</div>
+    <section class="photograph-header"></section>
+    <div id="custom-select"></div>
 
     <section class="photograph-medias"></section>
 
@@ -44,45 +27,21 @@
       <span class="bottom-like"></span><span class="bottom-price"></span>
     </div>
   </main>
-  <div id="contact_modal" role="dialog">
-    <div class="modal">
-      <header>
-        <h1>Contactez-moi</h1>
-        <img src="assets/icons/close.svg" alt="Close Contact Form" onclick="closeModal()" />
-      </header>
-      <form onsubmit="sendMessage(event)">
-        <div role="form" aria-label="Contact information">
-          <label for="firstname">Prénom</label>
-          <input id="firstname" name="firstname"/>
-          <label for="lastname">Nom</label>
-          <input id="lastname" name="lastname" />
-          <label for="email">Email</label>
-          <input id="email" name="email" />
-          <label for="message">Message</label>
-          <textarea id="message" name="message"></textarea>
-        </div>
-        <button class="contact_button" aria-label="Send">Envoyer</button>
-      </form>
-    </div>
-  </div>
-
-
-  <div id="media-modal" class="media-modal">
-    <span class="close cursor" alt="Close dialog" onclick="closeMedia()">&times;</span>
-    <div class="modal-content">
-      <!-- Next/previous controls -->
-      <a class="prev" alt="Previous image" onclick="moveSlide(-1)">&#10094;</a>
-      <a class="next" alt="Next image" onclick="moveSlide(1)">&#10095;</a>
-    </div>
-  </div>
-
   
-
-  <script src="scripts/pages/photographer.js"></script>
+  <!-- <script src="scripts/pages/photographer.js"></script> -->
+  <script src="scripts/utils/filter.js"></script>
   <script src="scripts/utils/contactForm.js"></script>
-  <script src="scripts/utils/mediaModal.js"></script>
-  <script src="scripts/utils/lightbox.js" defer></script>
+  <script src="scripts/utils/lightbox.js"></script>
 
+
+  <script src="scripts/api/api.js" ></script>
+  <script src="scripts/models/Photographer.js" ></script>
+  <script src="scripts/models/Media.js" ></script>
+  <script src="scripts/factories/MediasFactory.js" ></script>
+  <script src="scripts/templates/PhotographerProfile.js" ></script>
+  <script src="scripts/templates/MediaCard.js" ></script>
+  <script src="scripts/pages/photographer.js" ></script>
+  
 </body>
 
 </html>
