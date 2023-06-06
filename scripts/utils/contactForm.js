@@ -46,7 +46,7 @@ class ContactForm{
         dom.innerHTML = `<div class="modal">
             <header>
             <h1>Contactez-moi</h1>
-            <img class="contact__close" src="assets/icons/close.svg" alt="Close Contact Form" />
+            <img class="contact__close" src="./assets/icons/close.svg" alt="Close Contact Form" />
             </header>
             <form id="contact__form"">
                 <div>
