@@ -16,7 +16,7 @@ class SelectFilter{
             'title': 'Titre'
         }
         const $label = document.createElement('label')
-        $label.setAttribute('htmlFor', 'select')
+        $label.setAttribute('for', 'select')
         $label.textContent = "Trier par"
         const $selectInput = document.createElement('select')
         $selectInput.id = "select";
