@@ -1,14 +1,11 @@
-#contact_modal {
-    display: none;
-}
-
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    border-radius: 5px;
 }
 
-.contact_button {
+.contact_button, .contact__send {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -21,17 +18,48 @@
     cursor: pointer;
 }
 
+.contact_button:hover  {
+    background-color: #DB8876;
+    color: #000000;
+}
+
+.contact__send:hover {
+    background-color: rgba(144, 28, 28, .5);
+    color: #000000;
+}
+
+#contact_modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fafafa80;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 35vw;
+    height: fit-content;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+
+.modal::-webkit-scrollbar {
+    display: none;
+  }
 
 .modal header {
     justify-content: space-between;
@@ -42,10 +70,18 @@
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
+.modal header h1 {
+    margin: 18px 0;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 40px;
+    color: #000000;
     text-align: center;
+
+}
+
+.modal header img {
+    width: 35px;
 }
 
 form {
@@ -57,20 +93,299 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    mix-blend-mode: normal;
 }
 
 form div {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: self-start;
+    gap: 4px;
+    width: 100%;
     margin-bottom: 26px;
 }
 
-form input {
+form input,
+form textarea {
     width: 100%;
-    height: 68px;
+    height: 55px;
     border: none;
     border-radius: 5px;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 40px;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 120px;
+}
+
+/* header photographe */
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile_name {
+    font-weight: 400;
+    font-size: 64px;
+    color: #D3573C;
+    line-height: 83px;
+}
+
+.profile_location {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #901C1C;
+}
+
+.profile_tagline {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+}
+
+.profile_portrait {
+    height: 200px;
+    width: 200px;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.order {
+    margin: 20px 100px 50px;
+}
+
+.photograph-medias {
+    margin: 0 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    align-items: flex-start;
+    justify-content: space-between;
+    grid-gap: 30px;
+}
+
+.photograph-medias a {
+    text-decoration: none;
+}
+
+.photograph-medias figure {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-media {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+figcaption {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.media-name {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #911C1C;
+}
+
+.media-like {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: right;
+    color: #911C1C;
+}
+
+.media-like::after {
+    content: '\f004';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px 0px 0px 10px;
+    text-decoration: none;
+}
+
+.photograph-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 225px;
+    position: fixed;
+    bottom: 0;
+    right: 2rem;
+    padding: 15px 20px;
+    font-weight: bold;
+    background-color: #DB8876;
+    border-radius: 5px 5px 0 0;
+}
+
+.bottom-like::after {
+    content: '\f004';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px 0px 0px 5px;
+    text-decoration: none;
+}
+
+
+/* The Modal (background) */
+#media-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #E7E7E7;
+    box-sizing: border-box;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 50px;
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 5px;
+}
+
+/* The Close Button */
+.close {
+    color: #911C1C;
+    position: absolute;
+    right: 50px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #DB8876;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+    display: none;
+    box-sizing: border-box;
+}
+
+.mySlides img.img-modal,
+.mySlides video.img-modal {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: #911C1C;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+}
+
+/* Position the "prev button" to the left */
+.prev {
+    left: -50px;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: -50px;
+    border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    color: #DB8876;
+}
+
+
+
+
+
+#custom-select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 26px;
+    margin: 25px 100px;
+}
+
+#custom-select>label {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+}
+
+#select {
+    height: 70px;
+    width: 170px;
+    padding: 0 10px;
+    background-color: #901c1c;
+    border-radius: 5px;
+    color: white;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 20px auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+
 }

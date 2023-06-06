@@ -26,8 +26,7 @@ class PhotographerCard {
                         ${this._photographer.price}€/jour
                     </div>
                 </div>
-            </a>
-        `
+            </a>`
         $wrapper.innerHTML = photographerCard
         return $wrapper
     }

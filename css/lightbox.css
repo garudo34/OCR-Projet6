@@ -1,0 +1,114 @@
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF;
+    padding: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #911C1C;
+    border-radius: 4px;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e7e7e7;
+    z-index: 1999;
+    overflow: auto;
+    animation: lightboxIn .5s;
+    transition: opacity .3s;
+}
+
+.lightbox.fadeOut {
+    opacity: 0;
+}
+
+.lightbox__close {
+    color: #911C1C;
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: .3s ease;
+    z-index: 2001;
+
+}
+
+.lightbox__next,
+.lightbox__prev {
+    box-sizing: border-box; 
+    border: none;
+    width: auto;
+    position: fixed;
+    top: 50%;
+    padding: 16px;
+    margin-top: -50px;
+    z-index: 2000;
+    color: #911C1C;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.lightbox button {
+    color: #911C1C;
+    transition: color .3s ease;
+    cursor: pointer;
+}
+
+.lightbox button:hover {
+    color: #DB8876;
+}
+
+.lightbox__prev {
+    left: 50px;
+    border-radius: 3px 0 0 3px;
+}
+
+.lightbox__next {
+    right: 50px;
+    border-radius: 3px 0 0 3px;
+}
+
+.lightbox__container img, .lightbox__container video {
+    max-width: 90%;
+    max-height: 95vh;
+    /* height: calc(100vh - 20px); */
+    object-fit: contain;
+    animation: lightboxIn .5s;
+    border-radius: 5px;
+}
+
+.lightbox__container video {
+    object-fit: cover;
+}
+
+.lightbox__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    min-height: 100vh;
+}
+
+.lightbox__loader {
+    width: 38px;
+    height: 38px;
+    opacity: .5;
+    background: url(../assets/images/loader.svg) center center no-repeat;
+}
+
+@keyframes lightboxIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
